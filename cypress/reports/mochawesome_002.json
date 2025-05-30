@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-26T09:37:15.893Z",
+    "end": "2025-05-26T09:37:28.069Z",
+    "duration": 12176,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "74823f54-9e3c-4ddb-b2c7-c62f61b3011c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\NegativeLogin.cy.js",
+      "file": "cypress\\e2e\\NegativeLogin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "592eaa82-5080-4be6-aa58-89cc8fce731a",
+          "title": "Negative Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Tes pasword tidak sesuai",
+              "fullTitle": "Negative Login Test Tes pasword tidak sesuai",
+              "timedOut": null,
+              "duration": 7161,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"email\"]').type('rektor@unipa.ac.id');\ncy.get('input[name=\"password\"]').type('salahpassword');\ncy.get('form').submit();\n//respons\ncy.contains('Password tidak sesuai.', {\n  timeout: 10000\n}).should('be.visible');\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "e2310113-d6e2-417e-b58e-c411db5ed646",
+              "parentUUID": "592eaa82-5080-4be6-aa58-89cc8fce731a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tes email tidak sesuai",
+              "fullTitle": "Negative Login Test Tes email tidak sesuai",
+              "timedOut": null,
+              "duration": 1718,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"email\"]').type('salah@unipa.ac.id');\ncy.get('input[name=\"password\"]').type('12345678');\ncy.get('form').submit();\n//respons\ncy.contains('Pengguna tidak ditemukan.', {\n  timeout: 10000\n}).should('be.visible');\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "976ef9c7-71dc-4540-9f1c-b94c68ff40ed",
+              "parentUUID": "592eaa82-5080-4be6-aa58-89cc8fce731a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "login form tidak diisi",
+              "fullTitle": "Negative Login Test login form tidak diisi",
+              "timedOut": null,
+              "duration": 340,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('form').within(() => {\n  cy.get('button[type=\"submit\"]').click();\n  // Validasi bahwa field wajib harus diisi (validasi HTML5)\n  cy.get('input[name=\"email\"]');\n  cy.get('input[name=\"password\"]');\n});",
+              "err": {},
+              "uuid": "9d192832-2bc1-4664-ab98-406eb99f7832",
+              "parentUUID": "592eaa82-5080-4be6-aa58-89cc8fce731a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Email dan password salah",
+              "fullTitle": "Negative Login Test Email dan password salah",
+              "timedOut": null,
+              "duration": 1234,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"email\"]').type('salah@unipa.ac.id');\ncy.get('input[name=\"password\"]').type('salahpassword');\ncy.get('form').submit();\ncy.contains('Pengguna tidak ditemukan.').should('be.visible');\ncy.url().should('include', '/login');",
+              "err": {},
+              "uuid": "82fa1d2f-a844-49f3-9a68-1edbbf18084d",
+              "parentUUID": "592eaa82-5080-4be6-aa58-89cc8fce731a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e2310113-d6e2-417e-b58e-c411db5ed646",
+            "976ef9c7-71dc-4540-9f1c-b94c68ff40ed",
+            "9d192832-2bc1-4664-ab98-406eb99f7832",
+            "82fa1d2f-a844-49f3-9a68-1edbbf18084d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10453,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
