@@ -26,22 +26,76 @@ cy.get('body').then($body => {
 })
 
 // Search tanpa isi
-    cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]').should('be.visible')
+  cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]').should('be.visible')
   .clear('')
 
   cy.get('.ant-input-suffix .anticon-search').click()
   cy.get('ant-input-suffix').should('not.exist')
 
-  })
 
-// Search pakai spasi isi
-/* cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+
+// Search pakai spasi
+ cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
   .should('be.visible')
   .type(' ')
 
   cy.get('.ant-input-suffix .anticon-search').click()
-  cy.get('ant-input-suffix').should('not.exist')*/
+  cy.get('ant-input-suffix').should('not.exist')
+
+// Search pakai karakter
+cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+  .should('be.visible')
+  .type('!@#$%$$%^')
+
+  cy.get('.ant-input-suffix .anticon-search').click()
+  cy.get('ant-input-suffix').should('not.exist')
+
+  // Search pakai Angka
+cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+  .should('be.visible')
+  .type('1234567890')
+
+  cy.get('.ant-input-suffix .anticon-search').click()
+  cy.get('ant-input-suffix').should('not.exist')
+
+// Search pakai Short Keyword
+cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+  .should('be.visible')
+  .type('a')
+
+  cy.get('.ant-input-suffix .anticon-search').click()
+  cy.get('ant-input-suffix').should('not.exist')
 
 
+  // Search pakai 1000+ karakter
+  const longText = 'x'.repeat(1200)
+cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+  .should('be.visible')
+  .type(longText)
+
+  cy.get('.ant-input-suffix .anticon-search').click()
+  cy.get('ant-input-suffix').should('not.exist')
+
+// Search pakai multiple times rapidly
+
+cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+  .should('be.visible')
+  .type('manajemen')
+
+  for (let i = 0; i < 4; i++){ 
+
+  cy.get('.ant-input-suffix .anticon-search').click()
+  cy.get('ant-input-suffix').should('not.exist')
+  }
+// Search pakai karakter upcreas dan lowcrase
+
+cy.get('input[placeholder="Telusuri Koleksi Universitas Papua"]')
+  .should('be.visible')
+  .type('MaNaJeMen')
+
+  cy.get('.ant-input-suffix .anticon-search').click()
+  cy.get('ant-input-suffix').should('not.exist')
+
+  })
   })
 
