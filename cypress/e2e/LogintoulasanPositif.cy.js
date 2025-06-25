@@ -7,8 +7,8 @@ describe('iLibUNIPA', () => {
     
 
     // Isi username dan password
-    cy.get('input[name="email"]').type('rektor@unipa.ac.id') // ganti dengan user asli
-    cy.get('input[name="password"]').type('12345678') // ganti dengan password
+    cy.get('input[name="email"]').type('id') // ganti dengan user asli
+    cy.get('input[name="password"]').type('') // ganti dengan password
     cy.get('form').submit()// sesuaikan jika bukan button biasa
 
    cy.url().should('not.include', '/login')
